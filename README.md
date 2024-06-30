@@ -27,5 +27,10 @@
         @tailwind utilities;
     
 ### create components
+    - created components
+    - Login form Validation
+    - Integrate firebase
+    - impelement authentication using Firebase
+    
 
 

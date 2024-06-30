@@ -2,6 +2,11 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { formValidate } from "./utils/Validate";
+import { auth } from "../componnets/utils/firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -21,7 +26,42 @@ const Login = () => {
     const message = formValidate(email.current.value, password.current.value);
     setErrorMessage(message);
 
-    //sign in or sign up
+    if (message) return;
+
+    if (!isSignInForm) {
+      //sign up
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage("Email or Password is not found");
+        });
+    } else if (isSignInForm) {
+      //sign in
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage("Email or Password is not found");
+        });
+    }
   };
 
   return (

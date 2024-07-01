@@ -1,17 +1,24 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useRef, useState } from "react";
 import Header from "./Header";
-import { formValidate } from "./utils/Validate";
-import { auth } from "../componnets/utils/firebase";
+import { formValidate } from "../utilities/Validate";
+import { auth } from "../utilities/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../redux/userSlice";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
   const toggleSignInForm = (e) => {
     e.preventDefault();
     setIsSignInForm(!isSignInForm);
@@ -38,11 +45,32 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL:
+              "https://media.licdn.com/dms/image/D5635AQEWK1JdtJ7QhQ/profile-framedphoto-shrink_400_400/0/1681969759326?e=1720429200&v=beta&t=f4xD_67JG9mcLAmBDnVm7UDwZZgsUa5F4DlBH28zoRg",
+          })
+            .then(() => {
+              // again dispatch the user in order to get the updated profile
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
         })
+
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
+          // const errorCode = error.code;
+          // const errorMessage = error.message;
           setErrorMessage("Email or Password is not found");
         });
     } else if (isSignInForm) {
@@ -54,11 +82,11 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
+          navigate("/browse");
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
+          // const errorCode = error.code;
+          // const errorMessage = error.message;
           setErrorMessage("Email or Password is not found");
         });
     }
@@ -67,7 +95,6 @@ const Login = () => {
   return (
     <div className=" bg-black sm:bg-hero-pattern bg-cover h-lvh">
       <Header />
-
       <div className="flex justify-center items-center my-3 sm:my-5">
         <form
           onSubmit={(e) => e.preventDefault()}

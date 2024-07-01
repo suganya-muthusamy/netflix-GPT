@@ -25,12 +25,14 @@
         @tailwind base;
         @tailwind components;
         @tailwind utilities;
-    
+
 ### create components
-    - created components
-    - Login form Validation
-    - Integrate firebase
-    - impelement authentication using Firebase
-    
 
-
+- created components and Routings
+- Login form Validation
+- Integrated firebase
+- impelemented authentication using Firebase
+- created redux store
+- updated the displayName to the redux store
+- signout using firebase API
+- Used the useLocation hook in order to dispaly the header

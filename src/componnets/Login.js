@@ -8,17 +8,15 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/userSlice";
+import { photoURL } from "../utilities/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const dispatch = useDispatch();
-
-  const navigate = useNavigate();
   const toggleSignInForm = (e) => {
     e.preventDefault();
     setIsSignInForm(!isSignInForm);
@@ -47,8 +45,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://media.licdn.com/dms/image/D5635AQEWK1JdtJ7QhQ/profile-framedphoto-shrink_400_400/0/1681969759326?e=1720429200&v=beta&t=f4xD_67JG9mcLAmBDnVm7UDwZZgsUa5F4DlBH28zoRg",
+            photoURL: { photoURL },
           })
             .then(() => {
               // again dispatch the user in order to get the updated profile
@@ -61,7 +58,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -82,7 +78,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           // const errorCode = error.code;
@@ -95,10 +90,10 @@ const Login = () => {
   return (
     <div className=" bg-black sm:bg-hero-pattern bg-cover h-lvh">
       <Header />
-      <div className="flex justify-center items-center my-3 sm:my-5">
+      <div className="flex justify-center items-center py-16 sm:py-36">
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="bg-black w-full sm:w-6/12 lg:w-4/12 p-4 sm:p-8 md:p-12 rounded-lg bg-opacity-80"
+          className="bg-black w-[400px] p-4 sm:p-8 rounded-lg bg-opacity-80"
         >
           <h1 className="text-white font-bold text-3xl text-start mb-3">
             {isSignInForm ? "Sign In" : "Sign Up"}
@@ -115,7 +110,7 @@ const Login = () => {
             ref={email}
             className="p-3 my-4 w-full rounded-lg text-white bg-gray-600 bg-opacity-50"
             type="text"
-            placeholder="Email or Mobile Number"
+            placeholder="Email"
           ></input>
           <input
             ref={password}

@@ -1,0 +1,26 @@
+import React from "react";
+import { useSelector } from "react-redux";
+import VideoTitle from "./VideoTitle";
+import VideoBackground from "./VideoBackground";
+
+const MainContainer = () => {
+  const { nowPlayingMovies, trailerVideos } = useSelector(
+    (appStore) => appStore.movies
+  );
+
+  if (nowPlayingMovies === null) return;
+
+  const videoKey = trailerVideos?.key;
+  console.log(videoKey);
+
+  const mainMovie = nowPlayingMovies?.results[0];
+  const { original_title, overview } = mainMovie;
+  return (
+    <div className="text-white">
+      <VideoTitle title={original_title} overview={overview} />
+      <VideoBackground key={videoKey} />
+    </div>
+  );
+};
+
+export default MainContainer;

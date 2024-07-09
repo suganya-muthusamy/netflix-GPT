@@ -90,7 +90,7 @@ const Login = () => {
   return (
     <div className=" bg-black sm:bg-hero-pattern bg-cover h-lvh">
       <Header />
-      <div className="flex justify-center items-center py-16 sm:py-36">
+      <div className="flex justify-center items-center py-16 sm:py-40">
         <form
           onSubmit={(e) => e.preventDefault()}
           className="bg-black w-[400px] p-4 sm:p-8 rounded-lg bg-opacity-80"

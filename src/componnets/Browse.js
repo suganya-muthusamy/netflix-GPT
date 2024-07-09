@@ -1,13 +1,19 @@
 import Header from "./Header";
 import useNowPlayingMovies from "../fetchMovies/useNowPlayingMovies";
+import usePopularMovies from "../fetchMovies/usePopularMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import useTopRatedMovies from "../fetchMovies/useTopRatedMovies";
+import useUpcomingMovies from "../fetchMovies/useUpcomingMovies";
 
 const Browse = () => {
   useNowPlayingMovies();
+  usePopularMovies();
+  useTopRatedMovies();
+  useUpcomingMovies();
 
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <Header />
       <MainContainer />
       <SecondaryContainer />

@@ -11,12 +11,12 @@ const MainContainer = () => {
   if (nowPlayingMovies === null) return;
 
   const videoKey = trailerVideos?.key;
-  console.log(videoKey);
+  // console.log(videoKey);
 
   const mainMovie = nowPlayingMovies?.results[0];
   const { original_title, overview } = mainMovie;
   return (
-    <div className="text-white">
+    <div className=" text-white">
       <VideoTitle title={original_title} overview={overview} />
       <VideoBackground key={videoKey} />
     </div>

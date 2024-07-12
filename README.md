@@ -48,3 +48,9 @@
 - Fetched the Trailer videos from TMDB API using custom hook (useMovieVideos)
 - added the first trailer video to the redux store and fetch the data from the redux store
 - Manipulate the trailer video using youtube embed code in the UI
+- Built Secondary container with movie lists
+- got CDN API from TMDB for Image card
+- Built custom hooks to get different movies lists
+- Create GPT Search button on Header
+- Create GPT Search page and store the toggle data in redux store
+- implement the toggle funtion to show the GPT search page

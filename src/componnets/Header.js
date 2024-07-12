@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../redux/userSlice";
 import { logoURL } from "../utilities/constants";
+import { toggleGPTSearch } from "../redux/GPTSlice";
 
 const Header = () => {
   const { displayName, photoURL } = useSelector((appStore) => appStore.user);
@@ -52,6 +53,10 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleGPTSearch = () => {
+    dispatch(toggleGPTSearch());
+  };
+
   return (
     <div className="absolute w-screen flex justify-between items-center px-2 sm:px-5 py-2 md:px-15 lg:px-20 md:py-4">
       <div className="">
@@ -63,7 +68,12 @@ const Header = () => {
       </div>
       {pathname !== "/" && (
         <div className="flex justify-between items-center text-white font-bold ">
-          <p>Hi, {displayName}</p>
+          <p
+            onClick={handleGPTSearch}
+            className="bg-red-700 px-4 py-2 text-white font-bold rounded-sm cursor-pointer"
+          >
+            GPT Search
+          </p>
           <img
             className="mx-4  rounded-md w-[40px]"
             src={photoURL}

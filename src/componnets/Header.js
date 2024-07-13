@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../utilities/firebase";
 import { onAuthStateChanged } from "firebase/auth";
@@ -9,10 +9,12 @@ import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../redux/userSlice";
 import { logoURL } from "../utilities/constants";
 import { toggleGPTSearch } from "../redux/GPTSlice";
+import { SUPPORTED_LANGUAGES } from "../utilities/constants";
+import { changeLanguage } from "../redux/configSlice";
 
 const Header = () => {
-  const { displayName, photoURL } = useSelector((appStore) => appStore.user);
-  const { pathname } = useLocation();
+  const user = useSelector((appStore) => appStore.user);
+  const showGPTSearch = useSelector((appStore) => appStore.GPT.showGPTSearch);
   const navigate = useNavigate();
 
   const handleSignout = () => {
@@ -57,6 +59,10 @@ const Header = () => {
     dispatch(toggleGPTSearch());
   };
 
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   return (
     <div className="absolute w-screen flex justify-between items-center px-2 sm:px-5 py-2 md:px-15 lg:px-20 md:py-4">
       <div className="">
@@ -66,17 +72,31 @@ const Header = () => {
           alt="logo"
         />
       </div>
-      {pathname !== "/" && (
+      {user && (
         <div className="flex justify-between items-center text-white font-bold ">
+          {showGPTSearch && (
+            <select
+              onChange={handleLanguageChange}
+              className="bg-gray-800 text-white px-4 py-2 mx-5 rounded-sm "
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => {
+                return (
+                  <option key={lang.identifier} value={lang.identifier}>
+                    {lang.name}
+                  </option>
+                );
+              })}
+            </select>
+          )}
           <p
             onClick={handleGPTSearch}
             className="bg-red-700 px-4 py-2 text-white font-bold rounded-sm cursor-pointer"
           >
-            GPT Search
+            {showGPTSearch ? "Home Page" : "GPT Search"}
           </p>
           <img
             className="mx-4  rounded-md w-[40px]"
-            src={photoURL}
+            src={user.photoURL}
             alt="userIcon"
           />
           <p

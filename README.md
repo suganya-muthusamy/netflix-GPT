@@ -54,3 +54,5 @@
 - Create GPT Search button on Header
 - Create GPT Search page and store the toggle data in redux store
 - implement the toggle funtion to show the GPT search page
+- create the GPTSearchBar and GPTMovieSuggesions components
+- make the search and placeholder as multi-lingual

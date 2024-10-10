@@ -22,4 +22,3 @@ export const SUPPORTED_LANGUAGES = [
 ];
 
 export const OPENAI_KEY = "your Secret Key";
-// export const OPENAI_KEY = process.env.OPENAI_API_KEY;

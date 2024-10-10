@@ -21,6 +21,5 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "ta", name: "Tamil" },
 ];
 
-export const OPENAI_KEY =
-  "sk-u7lLAvyeHxgTlLysJFkVwvxNXLialH7jeBVNs6tMzsT3BlbkFJHggqEyOeNPo81eQclW_f4h6AqoTAK2_iFLfimQj4QA";
+export const OPENAI_KEY = "your Secret Key";
 // export const OPENAI_KEY = process.env.OPENAI_API_KEY;

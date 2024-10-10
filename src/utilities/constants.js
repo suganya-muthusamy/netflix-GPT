@@ -17,6 +17,10 @@ export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w300/";
 
 export const SUPPORTED_LANGUAGES = [
   { identifier: "en", name: "English" },
-  { identifier: "french", name: "French" },
-  { identifier: "tamil", name: "Tamil" },
+  { identifier: "fr", name: "French" },
+  { identifier: "ta", name: "Tamil" },
 ];
+
+export const OPENAI_KEY =
+  "sk-u7lLAvyeHxgTlLysJFkVwvxNXLialH7jeBVNs6tMzsT3BlbkFJHggqEyOeNPo81eQclW_f4h6AqoTAK2_iFLfimQj4QA";
+// export const OPENAI_KEY = process.env.OPENAI_API_KEY;

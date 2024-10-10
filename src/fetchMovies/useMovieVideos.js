@@ -19,7 +19,7 @@ const useMovieVideos = () => {
     const trailerVideos = json.results.filter(
       (video) => video.type === "Trailer"
     );
-    // console.log(trailerVideos);
+    console.log("trailer", trailerVideos);
 
     // filter just one Trailer video
 

@@ -2,10 +2,14 @@ import React from "react";
 import { IMG_CDN_URL } from "../utilities/constants";
 
 const MovieCard = ({ posterPath }) => {
+  if (!posterPath) return null;
+
   return (
-    <div className="w-52 pr-[0.2%]  bg-cover">
-      <img className="" alt="movie card" src={IMG_CDN_URL + posterPath} />
-    </div>
+    <img
+      className="w-32 m-1 "
+      alt="movie card"
+      src={IMG_CDN_URL + posterPath}
+    />
   );
 };
 

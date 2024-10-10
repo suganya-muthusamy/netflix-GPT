@@ -56,3 +56,9 @@
 - implement the toggle funtion to show the GPT search page
 - create the GPTSearchBar and GPTMovieSuggesions components
 - make the search and placeholder as multi-lingual
+- create the GPT API and GPTMovieSuggesions
+- get the GPT API key from the official website and configure with the help of the documentation
+- Give the right command to filter only 5 movies
+- Search each movies in TMDB movie list. each will return a promise. resolve all promises.
+- store the GPTmovie result in redux store.
+- Subscribe to the store to display the search results.

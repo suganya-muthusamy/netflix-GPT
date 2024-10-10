@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  /* chrome, safari, opera */
-  .scrollbar-hide::-webkit-scrollbar {
+/* @layer components { */
+/* chrome, safari, opera */
+/* .scrollbar-hide::-webkit-scrollbar {
     display: none;
-  }
+  } */
 
-  /* IE, Edge, Firefox */
-  .scrollbar-hide {
+/* IE, Edge, Firefox */
+/* .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-}
+} */

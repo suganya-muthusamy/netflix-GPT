@@ -14,11 +14,12 @@ const MainContainer = () => {
   // console.log(videoKey);
 
   const mainMovie = nowPlayingMovies?.results[0];
+  console.log(nowPlayingMovies?.results[0]);
   const { original_title, overview } = mainMovie;
   return (
-    <div className=" text-white">
+    <div className=" text-white overflow-hidden ">
       <VideoTitle title={original_title} overview={overview} />
-      <VideoBackground key={videoKey} />
+      <VideoBackground posterPath={mainMovie.poster_path} key={videoKey} />
     </div>
   );
 };

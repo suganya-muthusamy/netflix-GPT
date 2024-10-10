@@ -64,49 +64,44 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute w-screen flex justify-between items-center px-2 sm:px-5 py-2 md:px-15 lg:px-20 md:py-4">
+    <div className="z-10 absolute w-full flex items-center justify-between p-4">
       <div className="">
-        <img
-          className="w-28 md:w-32 absolute z-10 top-0 md:top-[10px]"
-          src={logoURL}
-          alt="logo"
-        />
+        <img className="w-36" src={logoURL} alt="logo" />
       </div>
-      {user && (
-        <div className="flex justify-between items-center text-white font-bold ">
-          {showGPTSearch && (
-            <select
-              onChange={handleLanguageChange}
-              className="bg-gray-800 text-white px-4 py-2 mx-5 rounded-sm "
-            >
-              {SUPPORTED_LANGUAGES.map((lang) => {
-                return (
-                  <option key={lang.identifier} value={lang.identifier}>
-                    {lang.name}
-                  </option>
-                );
-              })}
-            </select>
-          )}
-          <p
-            onClick={handleGPTSearch}
-            className="bg-red-700 px-4 py-2 text-white font-bold rounded-sm cursor-pointer"
+
+      <div className=" flex text-white font-bold p-4 md:p-0">
+        {showGPTSearch && (
+          <select
+            onChange={handleLanguageChange}
+            className="bg-gray-800 text-white px-3 py-2 mr-2 rounded-sm "
           >
-            {showGPTSearch ? "Home Page" : "GPT Search"}
-          </p>
-          <img
+            {SUPPORTED_LANGUAGES.map((lang) => {
+              return (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.identifier}
+                </option>
+              );
+            })}
+          </select>
+        )}
+        <span
+          onClick={handleGPTSearch}
+          className="bg-red-700 px-4 py-2 mr-3 text-white font-bold rounded-sm cursor-pointer"
+        >
+          {showGPTSearch ? "🏡" : "🔍"}
+        </span>
+        {/* <img
             className="mx-4  rounded-md w-[40px]"
-            src={user.photoURL}
+            src={user.displayName}
             alt="userIcon"
-          />
-          <p
-            onClick={handleSignout}
-            className="bg-red-700 px-4 py-2 text-white font-bold rounded-sm cursor-pointer"
-          >
-            Logout
-          </p>
-        </div>
-      )}
+          /> */}
+        <span
+          onClick={handleSignout}
+          className="bg-red-700 px-4 py-2 mr-3  text-white font-bold rounded-sm cursor-pointer"
+        >
+          👤
+        </span>
+      </div>
     </div>
   );
 };

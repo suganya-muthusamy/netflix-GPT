@@ -88,12 +88,12 @@ const Login = () => {
   };
 
   return (
-    <div className=" bg-black sm:bg-hero-pattern bg-cover h-lvh">
+    <div className=" bg-black sm:bg-hero-pattern bg-cover bg-fixed h-[100vh] ">
       <Header />
-      <div className="flex justify-center items-center py-16 sm:py-40">
+      <div className="flex items-center  justify-start sm:justify-center h-[100vh]">
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="bg-black w-[400px] p-4 sm:p-8 rounded-lg bg-opacity-80"
+          className="bg-black w-[400px] p-8 rounded-lg bg-opacity-80 mt-24"
         >
           <h1 className="text-white font-bold text-3xl text-start mb-3">
             {isSignInForm ? "Sign In" : "Sign Up"}

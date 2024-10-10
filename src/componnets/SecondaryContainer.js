@@ -8,12 +8,30 @@ const SecondaryContainer = () => {
   const top_rated = movies?.topRatedMovies;
   const up_coming = movies?.upcomingMovies;
 
+  const movieData = [
+    { title: "Now Playing Movies", movies: now_playing },
+    { title: "Popular Movies", movies: popular },
+    { title: "Top Rated Movies", movies: top_rated },
+    { title: "Up Coming Movies", movies: up_coming },
+  ];
+
   return (
-    <div className="-mt-[20%] ">
-      <MovieList type="Now Playing" movies={now_playing} />
-      <MovieList type="Popular" movies={popular} />
-      <MovieList type="Top Rated" movies={top_rated} />
-      <MovieList type="Up Coming" movies={up_coming} />
+    <div className="w-full m-auto">
+      <div className="bg-black mt-0 md:-mt-[20rem]">
+        {movieData.map((movie) => {
+          return (
+            <MovieList
+              key={movie.title}
+              title={movie.title}
+              movies={movie.movies}
+            />
+          );
+        })}
+      </div>
+      {/* <MovieList title="Now Playing" movies={now_playing} />
+      <MovieList title="Popular" movies={popular} />
+      <MovieList title="Top Rated" movies={top_rated} />
+      <MovieList title="Up Coming" movies={up_coming} /> */}
     </div>
   );
 };

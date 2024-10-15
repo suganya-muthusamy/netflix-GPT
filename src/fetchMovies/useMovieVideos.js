@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { OPTION_KEY } from "../utilities/constants";
-import { addTrailerVideo } from "../redux/moviesSlice";
+import { addAllVideos, addTrailerVideo } from "../redux/moviesSlice";
 import { useDispatch } from "react-redux";
 
 const useMovieVideos = () => {
@@ -12,9 +12,11 @@ const useMovieVideos = () => {
       OPTION_KEY
     );
     const json = await data.json();
-    // console.log(json);
+    console.log("videos", json);
 
     // filter the 'Trailer' videos
+
+    dispatch(addAllVideos(json));
 
     const trailerVideos = json.results.filter(
       (video) => video.type === "Trailer"

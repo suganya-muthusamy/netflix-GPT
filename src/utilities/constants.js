@@ -21,4 +21,4 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "ta", name: "Tamil" },
 ];
 
-export const OPENAI_KEY = "your Secret Key";
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_API_KEY;

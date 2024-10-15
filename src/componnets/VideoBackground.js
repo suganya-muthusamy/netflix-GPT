@@ -37,13 +37,14 @@ const VideoBackground = ({ key, posterPath }) => {
           width="100%"
           height="100%"
           src={
-            "https://www.youtube-nocookie.com/embed/LYV3001u574?si=" +
+            "https://www.youtube.com/embed/LYV3001u574?si=" +
             key +
             "&autoplay=1&mute=1"
           }
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
         ></iframe>
       )}
     </div>

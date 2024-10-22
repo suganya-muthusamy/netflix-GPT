@@ -73,7 +73,7 @@ const Header = () => {
         {showGPTSearch && (
           <select
             onChange={handleLanguageChange}
-            className="bg-gray-800 text-white px-3 py-2 mr-2 rounded-sm "
+            className="bg-gray-800 text-white px-0 md:px-3 md:py-2 mr-2 rounded-sm "
           >
             {SUPPORTED_LANGUAGES.map((lang) => {
               return (
@@ -86,7 +86,7 @@ const Header = () => {
         )}
         <span
           onClick={handleGPTSearch}
-          className="bg-red-700 px-4 py-2 mr-3 text-white font-bold rounded-sm cursor-pointer"
+          className="bg-red-700 px-0 md:px-3 md:py-2 mr-2 text-white font-bold rounded-sm cursor-pointer"
         >
           {showGPTSearch ? "🏡" : "🔍"}
         </span>
@@ -97,9 +97,13 @@ const Header = () => {
           /> */}
         <span
           onClick={handleSignout}
-          className="bg-red-700 px-4 py-2 mr-3  text-white font-bold rounded-sm cursor-pointer"
+          className="bg-red-700 px-0 md:px-3 md:py-2 mr-3 flex items-center justify-center text-white font-bold rounded-sm cursor-pointer"
         >
-          👤
+          <img
+            alt="img"
+            width={20}
+            src="https://img.icons8.com/?size=50&id=83290&format=png&color=ffffff"
+          />
         </span>
       </div>
     </div>

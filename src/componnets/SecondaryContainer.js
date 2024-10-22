@@ -19,7 +19,7 @@ const SecondaryContainer = () => {
 
   return (
     <div className="w-full m-auto">
-      <div className="bg-black mt-0 md:-mt-[20rem]">
+      <div className="bg-black mt-0 lg:-mt-[5rem] xl:-mt-[15rem]">
         {movieData.map((movie) => {
           return (
             <MovieList

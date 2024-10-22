@@ -59,23 +59,23 @@ const GPTSearchBar = () => {
     );
   };
   return (
-    <div className="w-1/2">
+    <div className="w-[90%] md:w-1/2">
       <form
         onSubmit={(e) => e.preventDefault()}
         className=" grid grid-cols-12 w-full"
       >
         <input
-          className="col-span-10 py-2 px-4"
+          className="col-span-10 py-2 px-4 text-xs md:text-sm border border-red-700 focus:border-red-700"
           ref={searchText}
           type="text"
           placeholder={langValues[lang].placeholder}
         />
         <button
-          className="col-span-2 text-white bg-red-700 px-4 py-2"
+          className="col-span-2 text-white text-2xl bg-red-700 px-0 py-2 "
           type="button"
           onClick={handleGPTResults}
         >
-          {langValues[lang].search}
+          🔍
         </button>
       </form>
     </div>

@@ -38,8 +38,6 @@ const GPTSearchBar = () => {
     const GPTMoviesSuggesstions =
       GPTResults?.choices?.[0]?.message?.content.split(",");
 
-    // console.log(GPTMoviesSuggesstions);
-
     // search each movies in tmdb server
     const allPromises = GPTMoviesSuggesstions.map((movie) =>
       searchMovies(movie)
@@ -48,7 +46,6 @@ const GPTSearchBar = () => {
     //this will return a list of promises. we have to resolve all together
 
     const tmdbResults = await Promise.all(allPromises);
-    // console.log(tmdbResults);
 
     // dispatch the movielist to redux
     dispatch(

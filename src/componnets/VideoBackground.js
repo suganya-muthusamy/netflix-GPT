@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
 import useMovieVideos from "../fetchMovies/useMovieVideos";
 import { IMG_CDN_URL } from "../utilities/constants";
 
-const VideoBackground = ({ key, posterPath }) => {
+const VideoBackground = ({ movieKey, posterPath }) => {
   useMovieVideos();
 
   return (
@@ -22,7 +21,7 @@ const VideoBackground = ({ key, posterPath }) => {
           height="100%"
           src={
             "https://www.youtube.com/embed/LYV3001u574?si=" +
-            key +
+            movieKey +
             "&autoplay=1&mute=1"
           }
           title="YouTube video player"

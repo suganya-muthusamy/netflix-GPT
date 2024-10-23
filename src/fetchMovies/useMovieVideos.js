@@ -12,7 +12,6 @@ const useMovieVideos = () => {
       OPTION_KEY
     );
     const json = await data.json();
-    console.log("videos", json);
 
     // filter the 'Trailer' videos
 
@@ -21,14 +20,12 @@ const useMovieVideos = () => {
     const trailerVideos = json.results.filter(
       (video) => video.type === "Trailer"
     );
-    console.log("trailer", trailerVideos);
 
     // filter just one Trailer video
 
     const finalTrailerVideo = trailerVideos.length
       ? trailerVideos[0]
       : json.results[0];
-    // console.log(finalTrailerVideo);
 
     dispatch(addTrailerVideo(finalTrailerVideo));
   };

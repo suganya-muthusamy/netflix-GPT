@@ -69,11 +69,11 @@ const Header = () => {
         <img className="w-36" src={logoURL} alt="logo" />
       </div>
 
-      <div className=" flex text-white font-bold p-4 md:p-0">
+      <div className=" flex text-white font-bold p-2 md:p-0">
         {showGPTSearch && (
           <select
             onChange={handleLanguageChange}
-            className="bg-gray-800 text-white px-0 md:px-3 md:py-2 mr-2 rounded-sm "
+            className="bg-gray-800 text-white p-1 md:px-3 md:py-2 mr-2 rounded-sm "
           >
             {SUPPORTED_LANGUAGES.map((lang) => {
               return (
@@ -86,18 +86,14 @@ const Header = () => {
         )}
         <span
           onClick={handleGPTSearch}
-          className="bg-red-700 px-0 md:px-3 md:py-2 mr-2 text-white font-bold rounded-sm cursor-pointer"
+          className="bg-red-700 p-1 md:px-3 md:py-2 mr-2 text-white font-bold rounded-sm cursor-pointer"
         >
           {showGPTSearch ? "🏡" : "🔍"}
         </span>
-        {/* <img
-            className="mx-4  rounded-md w-[40px]"
-            src={user.displayName}
-            alt="userIcon"
-          /> */}
+
         <span
           onClick={handleSignout}
-          className="bg-red-700 px-0 md:px-3 md:py-2 mr-3 flex items-center justify-center text-white font-bold rounded-sm cursor-pointer"
+          className="bg-red-700 p-1 md:px-3 md:py-2 mr-3 flex items-center justify-center text-white font-bold rounded-sm cursor-pointer"
         >
           <img
             alt="img"

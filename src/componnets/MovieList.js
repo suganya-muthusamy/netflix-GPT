@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
@@ -8,8 +7,14 @@ const MovieList = ({ title, movies }) => {
 
       <div className="flex overflow-scroll no-scrollbar">
         {movies &&
-          movies?.results.map((movie) => {
-            return <MovieCard key={movie.key} posterPath={movie.poster_path} />;
+          movies?.results.map((movie, i) => {
+            return (
+              <MovieCard
+                key={i}
+                movieKey={movie.key}
+                posterPath={movie.poster_path}
+              />
+            );
           })}
       </div>
     </div>

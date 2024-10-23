@@ -8,8 +8,6 @@ const SecondaryContainer = () => {
   const top_rated = movies?.topRatedMovies;
   const up_coming = movies?.upcomingMovies;
 
-  console.log("play", now_playing);
-
   const movieData = [
     { title: "Now Playing Movies", movies: now_playing },
     { title: "Popular Movies", movies: popular },

@@ -11,10 +11,8 @@ const MainContainer = () => {
   if (nowPlayingMovies === null) return;
 
   const videoKey = trailerVideos?.key;
-  // console.log(trailerVideos);
 
   const mainMovie = nowPlayingMovies?.results[0];
-  // console.log(nowPlayingMovies?.results[0]);
   const { original_title, overview } = mainMovie;
   return (
     <div className=" text-white overflow-hidden ">

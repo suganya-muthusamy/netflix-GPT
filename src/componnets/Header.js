@@ -52,7 +52,7 @@ const Header = () => {
 
     // unsubscribe the event listener when the header component is unmounted
     return () => unsubscribe();
-  }, []);
+  }, [dispatch, navigate]);
 
   const handleGPTSearch = () => {
     dispatch(toggleGPTSearch());

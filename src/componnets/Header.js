@@ -13,17 +13,16 @@ import { SUPPORTED_LANGUAGES } from "../utilities/constants";
 import { changeLanguage } from "../redux/configSlice";
 
 const Header = () => {
-  const user = useSelector((appStore) => appStore.user);
   const showGPTSearch = useSelector((appStore) => appStore.GPT.showGPTSearch);
   const navigate = useNavigate();
 
   const handleSignout = () => {
     signOut(auth)
       .then(() => {
-        // navigate("/");
+        navigate("/");
       })
       .catch((error) => {
-        // navigate("/browse");
+        navigate("/browse");
       });
   };
 
@@ -66,7 +65,7 @@ const Header = () => {
   return (
     <div className="z-10 absolute w-full flex items-center justify-between p-4">
       <div className="">
-        <img className="w-36" src={logoURL} alt="logo" />
+        <img className="w-36 " src={logoURL} alt="logo" />
       </div>
 
       <div className=" flex text-white font-bold p-2 md:p-0">
